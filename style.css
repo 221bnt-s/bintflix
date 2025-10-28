@@ -1,0 +1,19 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background: #141414;
+  color: #fff;
+}
+
+/* TODO : Ajouter les styles pour le header */
+
+/* TODO : Ajouter les styles pour le formulaire de recherche */
+
+/* TODO : Ajouter les styles pour la grille de films */
+
+/* TODO : Ajouter les styles pour les cards de films */
