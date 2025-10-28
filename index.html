@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Bintflix</title>
   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <script src="https://kit.fontawesome.com/783766bfd8.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="style.css">
 
 </head>
@@ -25,11 +26,12 @@
     </div>
 
     <nav id="nav-menu" class="hidden sm:flex flex-col sm:flex-row gap-2 sm:gap-4 mt-2 sm:mt-0 absolute top-full left-0 right-0 bg-black p-4 shadow-lg z-40 sm:relative sm:p-0 sm:shadow-none">
+      <button><a href="index.html" class="text-white hover:text-purple-500 transition-colors">Accueil</a></button>
       <button class="hover:text-purple-500 transition-colors" id="btn-series">Séries populaires</button>
       <button class="hover:text-purple-500 transition-colors" id="btn-films">Films populaires</button>
       <button class="hover:text-purple-500 transition-colors">Nouveautés</button>
       <button class="hover:text-purple-500 transition-colors">Langues</button>
-      <input type="search" id="search" placeholder="Titres, personnes, genres..." class="border border-white rounded-md p-2 bg-gray-900 text-white placeholder-gray-400 w-full sm:w-64 mt-2 sm:mt-0">
+      <input type="search" id="search" placeholder="Rechercher..." class="border border-white rounded-md p-2 bg-gray-900 text-white placeholder-gray-400 w-full sm:w-64 mt-2 sm:mt-0">
     </nav>
 
   </div>
@@ -58,7 +60,44 @@
       <div id="series-grid" class="scroll-container"></div>
     </section>
   </main>
+  <footer>
+      <div class="mx-auto max-w-7xl space-y-8 px-4 py-16 sm:px-6 lg:space-y-16 lg:px-8">
+        <div class="sm:flex sm:items-center sm:justify-between">
+          <div>
+            <img src="logo-nonebackground.png" alt="Logo" style="width: 150px;">
+          </div>
+          <ul class="mt-8 flex-justify-start gap-10 sm:mt-0 sm:justify-end">
+           <a href="#" class="hover:text-purple-500"><i class="fa-brands fa-facebook text-3xl"></i></a>
+           <a href="#" class="hover:text-purple-500"><i class="fa-brands fa-instagram text-3xl"></i></a>
+           <a href="#" class="hover:text-purple-500"><i class="fa-brands fa-github text-3xl"></i></a>
+           <a href="#" class="hover:text-purple-500"><i class="fa-brands fa-x-twitter text-3xl"></i></a>
+          </ul>
+        </div>
+        
+        <div class="grid grid-cols-1 gap-8 border-t border-gray-100 pt-8 sm:grid-cols-2 lg:grid-cols-4 lg:pt-16">
+          <div>
+            <ul class="mt-6 space-y-4 text-sm">
+              <li><a href="#" class="hover:text-purple-500">Centre d'aide</a></li>
+              <li><a href="#"  class="hover:text-purple-500">Préférences de cookies</a></li>
+              <li><a href="#"  class="hover:text-purple-500">Nous contacter</a></li>
+            </ul>
 
+            <ul class="mt-6 space-y-4 text-sm">
+              <li><a href="#" class="hover:text-purple-500">Choix liés à la pub</a></li>
+              <li><a href="#"  class="hover:text-purple-500">Informations légales</a></li>
+              <li><a href="#"  class="hover:text-purple-500"></a>Mentions légales</li>
+            </ul>
+
+            <ul class="mt-6 space-y-4 text-sm">
+              <li><a href="#" class="hover:text-purple-500">Audiodescription</a></li>
+              <li><a href="#" class="hover:text-purple-500">Cartes cadeaux</a></li>
+              <li><a href="#" class="hover:text-purple-500"></a>Boutique</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <p class="text-xs text-center">  © 2025. BintFlix. Tous droits réservés.</p>
+  </footer>
  
   <script src="script.js"></script>
 

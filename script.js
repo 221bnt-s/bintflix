@@ -1,13 +1,5 @@
     console.log("Netflex hero & sections chargés !");
 
-    const burger = document.querySelector("#burger");
-    const navMenu = document.querySelector("#nav-menu");
-
-    burger.addEventListener("click", () => {
-  navMenu.classList.toggle("hidden");
-});
-
-
     const API_KEY = '7edcc392043e6fe236d7b0328575dffb';
     const BASE_URL = 'https://api.themoviedb.org/3';
     const IMG_URL = 'https://image.tmdb.org/t/p/original';
