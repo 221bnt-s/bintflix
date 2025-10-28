@@ -1,19 +1,48 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
 
-body {
-  font-family: 'Arial', sans-serif;
-  background: #141414;
-  color: #fff;
-}
+    /* Scroll horizontal pour les sections */
+    .scroll-container {
+      display: flex;
+      overflow-x: auto;
+      gap: 1rem;
+      padding-bottom: 1rem;
+    }
 
-/* TODO : Ajouter les styles pour le header */
+    .scroll-container::-webkit-scrollbar {
+      height: 8px;
+    }
 
-/* TODO : Ajouter les styles pour le formulaire de recherche */
+    .scroll-container::-webkit-scrollbar-thumb {
+      background-color: #888;
+      border-radius: 4px;
+    }
 
-/* TODO : Ajouter les styles pour la grille de films */
+    .hero {
+      position: relative;
+      height: 60vh;
+      background-size: cover;
+      background-position: center;
+      margin-bottom: 2rem;
+    }
 
-/* TODO : Ajouter les styles pour les cards de films */
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.8), transparent 60%);
+    }
+
+    .hero-content {
+      position: absolute;
+      bottom: 2rem;
+      left: 2rem;
+      max-width: 600px;
+    }
+
+    .hero h2 {
+      font-size: 2rem;
+      font-weight: bold;
+    }
+
+    .hero p {
+      margin-top: 0.5rem;
+      color: #ccc;
+    }

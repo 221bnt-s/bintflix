@@ -3,21 +3,63 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Netflex - Votre Mini Netflix</title>
+  <title>Bintflex - Accueil</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
   <link rel="stylesheet" href="style.css">
+
 </head>
-<body>
-  <header>
-    <h1>🎬 Netflex</h1>
-    <!-- TODO : Ajouter le formulaire de recherche ici -->
+<body class="bg-black text-white">
+
+  <header class="bg-black text-white p-4 shadow-md sticky top-0 z-50">
+    <div class="container mx-auto flex flex-col sm:flex-row justify-between items-center gap-4">
+      <div class="flex items-center gap-2">
+        <span class="text-4xl">🎬</span>
+        <h1 class="text-2xl sm:text-3xl font-bold">Bintflix</h1>
+      </div>
+
+      <nav class="flex flex-wrap justify-center sm:justify-start gap-4">
+        <button class="hover:text-red-500 transition-colors" id="btn-series">Séries populaires</button>
+        <button class="hover:text-red-500 transition-colors" id="btn-films">Films populaires</button>
+        <button class="hover:text-red-500 transition-colors">Nouveautés</button>
+        <button class="hover:text-red-500 transition-colors">Langues</button>
+      </nav>
+
+      <div class="mt-2 sm:mt-0">
+        <input 
+          type="search" 
+          id="search" 
+          placeholder="Titres, personnes, genres..." 
+          class="border border-white rounded-md p-2 bg-gray-900 text-white placeholder-gray-400 w-64 sm:w-72 focus:outline-none focus:ring-2 focus:ring-red-500 transition-all"
+        />
+      </div>
+    </div>
   </header>
 
-  <main>
-    <div id="movies-grid">
-      <!-- Les films s'afficheront ici -->
+  <div id="hero" class="hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h2 id="hero-title"></h2>
+      <p id="hero-overview"></p>
+      <button class="bg-white text-sm text-black rounded-sm p-1.5 m-3 uppercase font-bold">Voir la série</button>
     </div>
+  </div>
+
+
+  <main class="p-8">
+    <section>
+      <h2 class="text-2xl font-bold mb-4">🎥 Films populaires</h2>
+      <div id="movies-grid" class="scroll-container"></div>
+    </section>
+
+    <section>
+      <h2 class="text-2xl font-bold mb-4 mt-8">🔥 Séries populaires</h2>
+      <div id="series-grid" class="scroll-container"></div>
+    </section>
   </main>
 
+ 
   <script src="script.js"></script>
+
 </body>
 </html>
+
