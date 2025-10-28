@@ -9,31 +9,33 @@
 
 </head>
 <body class="bg-black text-white">
+<header class="bg-black text-white p-4 shadow-md sticky top-0 z-50">
+  <div class="container mx-auto flex justify-between items-center">
 
-  <header class="bg-black text-white shadow-md sticky top-0 z-50">
-    <div class="container mx-auto flex flex-col sm:flex-row justify-between items-center gap-4">
-      <div>
-        <img src="logo-nonebackground.png" alt="" style="width: 150px;">
-      </div>
-
-      <nav class="flex flex-wrap justify-center sm:justify-start gap-4">
-        <button class="hover:text-blue-500 transition-colors"><a href="index.html" class="text-white"></a></button>
-        <button class="hover:text-blue-500 transition-colors" id="btn-series">Séries populaires</button>
-        <button class="hover:text-blue-500 transition-colors" id="btn-films">Films populaires</button>
-        <button class="hover:text-blue-500 transition-colors">Nouveautés</button>
-        <button class="hover:text-blue-500 transition-colors">Langues</button>
-      </nav>
-
-      <div class="mt-2 sm:mt-0">
-        <input 
-          type="search" 
-          id="search" 
-          placeholder="Titres, personnes, genres..." 
-          class="border border-white rounded-md p-2 bg-gray-900 text-white placeholder-gray-400 w-64 sm:w-72 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"
-        />
-      </div>
+    <div class="flex items-center gap-2">
+      <img src="logo-nonebackground.png" alt="Logo" style="width: 130px;">
     </div>
-  </header>
+
+    <div class="sm:hidden">
+      <button id="burger" class="focus:outline-none">
+        <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+    </div>
+
+    <nav id="nav-menu" class="hidden sm:flex flex-col sm:flex-row gap-2 sm:gap-4 mt-2 sm:mt-0 absolute top-full left-0 right-0 bg-black p-4 shadow-lg z-40 sm:relative sm:p-0 sm:shadow-none">
+      <button class="hover:text-purple-500 transition-colors" id="btn-series">Séries populaires</button>
+      <button class="hover:text-purple-500 transition-colors" id="btn-films">Films populaires</button>
+      <button class="hover:text-purple-500 transition-colors">Nouveautés</button>
+      <button class="hover:text-purple-500 transition-colors">Langues</button>
+      <input type="search" id="search" placeholder="Titres, personnes, genres..." class="border border-white rounded-md p-2 bg-gray-900 text-white placeholder-gray-400 w-full sm:w-64 mt-2 sm:mt-0">
+    </nav>
+
+  </div>
+</header>
+
+
 
   <div id="hero" class="hero">
     <div class="hero-overlay"></div>
