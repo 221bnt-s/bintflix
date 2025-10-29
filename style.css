@@ -30,15 +30,11 @@ header {
   color: var(--bint-text);
 }
 
-nav a {
-  color: var(--bint-text);
-  font-weight: 500;
-  transition: color 0.3s ease;
+nav button:hover,
+nav a:hover {
+  color: var(--bint-pink); /* ton violet personnalisé */
 }
 
-nav a:hover {
-  color: var(--bint-pink) !important;
-}
 
 #search {
   background: rgba(40, 40, 55, 0.8);
