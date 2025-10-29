@@ -1,136 +1,268 @@
+/* === BINTFLIX STYLE — Light + Dark Mode === */
+:root {
+  --bint-blue: #2E8BFF;
+  --bint-pink: #E44C9A;
+  --bint-bg: #F5F7FB;
+  --bint-surface: rgba(255, 255, 255, 0.8);
+  --bint-text: #1B1B1F;
+  --bint-muted: #5A5D6B;
 
-    /* Scroll horizontal pour les sections */
-    .scroll-container {
-      display: flex;
-      overflow-x: auto;
-      gap: 1rem;
-      padding-bottom: 1rem;
-    }
+  --shadow-blue: 0 0 20px rgba(46, 139, 255, 0.3);
+  --shadow-pink: 0 0 30px rgba(228, 76, 154, 0.3);
+}
 
-    .scroll-container::-webkit-scrollbar {
-      height: 8px;
-    }
+/* === MODE CLAIR === */
+body {
+  font-family: 'Inter', 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #eef3ff 0%, #ffeaf3 100%);
+  color: var(--bint-text);
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
 
-    .scroll-container::-webkit-scrollbar-thumb {
-      background-color: #888;
-      border-radius: 4px;
-    }
+/* HEADER */
+header {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  box-shadow: var(--shadow-blue);
+  color: var(--bint-text);
+}
 
-    .hero {
-      position: relative;
-      height: 60vh;
-      background-size: cover;
-      background-position: center;
-      margin-bottom: 2rem;
-    }
+header a {
+  color: var(--bint-text);
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
 
-    .hero-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to top, rgba(0,0,0,0.8), transparent 60%);
-    }
+header a:hover {
+  color: var(--bint-pink);
+}
 
-    .hero-content {
-      position: absolute;
-      bottom: 2rem;
-      left: 2rem;
-      max-width: 600px;
-    }
+#search {
+  background: rgba(255, 255, 255, 0.7);
+  color: var(--bint-text);
+  border: 1px solid rgba(46, 139, 255, 0.4);
+  box-shadow: var(--shadow-blue);
+  transition: all 0.3s ease;
+}
 
-    .hero h2 {
-      font-size: 2rem;
-      font-weight: bold;
-    }
+#search:focus {
+  border-color: var(--bint-pink);
+  box-shadow: var(--shadow-pink);
+}
 
-    .hero p {
-      margin-top: 0.5rem;
-      color: #ccc;
-    }
+/* HERO */
+.hero {
+  position: relative;
+  height: 60vh;
+  background-size: cover;
+  background-position: center;
+  border-radius: 1rem;
+  overflow: hidden;
+  margin-bottom: 2rem;
+  box-shadow: var(--shadow-blue);
+}
 
- /* 1. Conteneur principal - .modal */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(255,255,255,0.9), rgba(255,255,255,0));
+}
+
+.hero-content {
+  position: absolute;
+  bottom: 2rem;
+  left: 2rem;
+  max-width: 600px;
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(10px);
+  padding: 1.5rem;
+  border-radius: 1rem;
+}
+
+.hero h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  background: linear-gradient(90deg, var(--bint-blue), var(--bint-pink));
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.hero p {
+  margin-top: 0.5rem;
+  color: var(--bint-muted);
+}
+
+.hero button {
+  background: linear-gradient(90deg, var(--bint-blue), var(--bint-pink));
+  color: #fff;
+  font-weight: 600;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  margin-top: 1rem;
+  box-shadow: var(--shadow-blue);
+  transition: all 0.3s ease;
+}
+
+.hero button:hover {
+  box-shadow: var(--shadow-pink);
+  transform: translateY(-2px);
+}
+
+/* SCROLL */
+.scroll-container {
+  display: flex;
+  overflow-x: auto;
+  gap: 1rem;
+  padding-bottom: 1rem;
+}
+
+.scroll-container::-webkit-scrollbar {
+  height: 8px;
+}
+
+.scroll-container::-webkit-scrollbar-thumb {
+  background: linear-gradient(90deg, var(--bint-blue), var(--bint-pink));
+  border-radius: 4px;
+}
+
+/* FOOTER */
+footer {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  color: var(--bint-text);
+  margin-top: 4rem;
+  box-shadow: var(--shadow-blue);
+}
+
+footer a:hover {
+  color: var(--bint-pink);
+}
+
+footer p {
+  color: var(--bint-muted);
+}
+
+/* MODAL */
 .modal {
-    /* Fixe la position pour qu'il couvre toute la fenêtre (viewport) */
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    /* Utilise Flexbox pour centrer le contenu */
-    display: flex; 
-    justify-content: center;
-    align-items: center;
-    /* Assure que le modal est au-dessus de tout le reste */
-    z-index: 1000; 
-    /* Transition pour l'ouverture/fermeture */
-    transition: opacity 0.3s ease, visibility 0.3s ease;
-    
-    /* Masqué par défaut */
-    opacity: 1; /* Rendu visible par défaut (sera masqué par la classe .hidden) */
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  display: flex; 
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
-/* 2. Classe pour masquer le modal (utilisée dans app.js/ui.js) */
 .modal.hidden {
-    display: none; /* Cache complètement l'élément du flux */
+  display: none;
 }
 
-
-/* 3. Fond sombre transparent - .modal-overlay */
 .modal-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.7); /* Noir avec 70% de transparence */
-    z-index: 1001; /* Doit être sous le contenu mais au-dessus du reste de la page */
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  backdrop-filter: blur(6px);
 }
 
-/* 4. Boîte blanche centrée - .modal-content */
 .modal-content {
-    /* Retiré le positionnement absolu grâce à l'utilisation de `display: flex` sur .modal */
-    position: relative; /* Position relative par rapport à .modal */
-    z-index: 1002; 
-    
-    /* Style de la boîte */
-    background-color: white;
-    color: black; /* Texte noir sur fond blanc */
-    padding: 25px;
-    border-radius: 8px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-    
-    /* Taille maximale pour ne pas couvrir tout l'écran */
-    max-width: 900px; 
-    width: 90%;
-    max-height: 90vh; /* 90% de la hauteur du viewport */
-    overflow-y: auto; /* Permet le défilement si le contenu est trop grand */
+  position: relative;
+  z-index: 1002;
+  background: var(--bint-surface);
+  color: var(--bint-text);
+  padding: 25px;
+  border-radius: 1rem;
+  box-shadow: var(--shadow-blue);
+  max-width: 900px;
+  width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
 }
 
-/* 5. Style du bouton de fermeture (croix) */
 #close-modal {
-    position: absolute;
-    top: 10px;
-    right: 15px;
-    background: none;
-    border: none;
-    font-size: 30px;
-    font-weight: bold;
-    color: #333;
-    cursor: pointer;
-    line-height: 1;
-    z-index: 1003;
-    transition: color 0.2s;
+  position: absolute;
+  top: 10px; right: 15px;
+  background: none;
+  border: none;
+  font-size: 30px;
+  font-weight: bold;
+  color: var(--bint-text);
+  cursor: pointer;
+  transition: color 0.3s;
 }
 
 #close-modal:hover {
-    color: #e50914; /* Couleur rouge Netflix/Bintflix pour l'exemple */
+  color: var(--bint-pink);
 }
 
-/* 6. Où on met le contenu - #modal-body */
-#modal-body {
-    padding-top: 10px; /* Espace pour le bouton de fermeture */
+/* CARDS */
+.card {
+  background: var(--bint-surface);
+  border-radius: 1rem;
+  box-shadow: var(--shadow-blue);
+  overflow: hidden;
+  transition: all 0.3s ease;
 }
 
-/* Style spécifique au trailer pour le rendre responsive */
-.trailer-container {
-    /* Ajout de styles pour le conteneur du trailer si nécessaire */
+.card:hover {
+  box-shadow: var(--shadow-pink);
+  transform: scale(1.03);
+}
+
+/* === MODE SOMBRE === */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bint-bg: #0D0E12;
+    --bint-surface: rgba(25, 25, 35, 0.8);
+    --bint-text: #EDEDED;
+    --bint-muted: #A1A1A1;
+
+    --shadow-blue: 0 0 25px rgba(46, 139, 255, 0.4);
+    --shadow-pink: 0 0 35px rgba(228, 76, 154, 0.4);
+  }
+
+  body {
+    background: linear-gradient(135deg, #14151A 0%, #1D1020 100%);
+    color: var(--bint-text);
+  }
+
+  header {
+    background: rgba(20, 20, 25, 0.7);
+    box-shadow: var(--shadow-blue);
+  }
+
+  #search {
+    background: rgba(40, 40, 50, 0.7);
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .hero-overlay {
+    background: linear-gradient(to top, rgba(0,0,0,0.9), rgba(0,0,0,0));
+  }
+
+  .hero-content {
+    background: rgba(20, 20, 30, 0.6);
+  }
+
+  footer {
+    background: rgba(25, 25, 35, 0.7);
+    color: var(--bint-text);
+  }
+
+  .modal-overlay {
+    background: rgba(0, 0, 0, 0.8);
+  }
+
+  .modal-content {
+    background: rgba(30, 30, 40, 0.9);
+    color: var(--bint-text);
+  }
+
+  .card {
+    background: rgba(30, 30, 40, 0.8);
+  }
 }
