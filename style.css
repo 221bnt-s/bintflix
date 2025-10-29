@@ -1,48 +1,49 @@
-/* === BINTFLIX STYLE — Light + Dark Mode === */
+/* === BINTFLIX STYLE — DARK MODE NÉON === */
 :root {
   --bint-blue: #2E8BFF;
   --bint-pink: #E44C9A;
-  --bint-bg: #F5F7FB;
-  --bint-surface: rgba(255, 255, 255, 0.8);
-  --bint-text: #1B1B1F;
-  --bint-muted: #5A5D6B;
+  --bint-bg: #0D0E12;
+  --bint-surface: rgba(25, 25, 35, 0.85);
+  --bint-text: #EDEDED;
+  --bint-muted: #A1A1A1;
 
-  --shadow-blue: 0 0 20px rgba(46, 139, 255, 0.3);
-  --shadow-pink: 0 0 30px rgba(228, 76, 154, 0.3);
+  --shadow-blue: 0 0 25px rgba(46, 139, 255, 0.4);
+  --shadow-pink: 0 0 35px rgba(228, 76, 154, 0.4);
 }
 
-/* === MODE CLAIR === */
+/* === GLOBAL === */
 body {
   font-family: 'Inter', 'Poppins', sans-serif;
-  background: linear-gradient(135deg, #eef3ff 0%, #ffeaf3 100%);
+  background: radial-gradient(circle at top left, #161A25 0%, #0D0E12 60%, #100812 100%);
   color: var(--bint-text);
   margin: 0;
   padding: 0;
   min-height: 100vh;
+  overflow-x: hidden;
 }
 
-/* HEADER */
+/* === HEADER === */
 header {
-  background: rgba(255, 255, 255, 0.7);
+  background: rgba(20, 20, 30, 0.7);
   backdrop-filter: blur(10px);
   box-shadow: var(--shadow-blue);
   color: var(--bint-text);
 }
 
-header a {
+nav a {
   color: var(--bint-text);
   font-weight: 500;
   transition: color 0.3s ease;
 }
 
-header a:hover {
-  color: var(--bint-pink);
+nav a:hover {
+  color: var(--bint-pink) !important;
 }
 
 #search {
-  background: rgba(255, 255, 255, 0.7);
+  background: rgba(40, 40, 55, 0.8);
   color: var(--bint-text);
-  border: 1px solid rgba(46, 139, 255, 0.4);
+  border: 1px solid rgba(46, 139, 255, 0.3);
   box-shadow: var(--shadow-blue);
   transition: all 0.3s ease;
 }
@@ -52,7 +53,7 @@ header a:hover {
   box-shadow: var(--shadow-pink);
 }
 
-/* HERO */
+/* === HERO === */
 .hero {
   position: relative;
   height: 60vh;
@@ -67,7 +68,7 @@ header a:hover {
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(255,255,255,0.9), rgba(255,255,255,0));
+  background: linear-gradient(to top, rgba(0,0,0,0.9), rgba(0,0,0,0.1));
 }
 
 .hero-content {
@@ -75,7 +76,7 @@ header a:hover {
   bottom: 2rem;
   left: 2rem;
   max-width: 600px;
-  background: rgba(255, 255, 255, 0.6);
+  background: rgba(25, 25, 40, 0.6);
   backdrop-filter: blur(10px);
   padding: 1.5rem;
   border-radius: 1rem;
@@ -111,7 +112,7 @@ header a:hover {
   transform: translateY(-2px);
 }
 
-/* SCROLL */
+/* === SCROLL SECTIONS === */
 .scroll-container {
   display: flex;
   overflow-x: auto;
@@ -128,24 +129,21 @@ header a:hover {
   border-radius: 4px;
 }
 
-/* FOOTER */
-footer {
-  background: rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(10px);
-  color: var(--bint-text);
-  margin-top: 4rem;
+/* === CARDS === */
+.card {
+  background: var(--bint-surface);
+  border-radius: 1rem;
   box-shadow: var(--shadow-blue);
+  overflow: hidden;
+  transition: all 0.3s ease;
 }
 
-footer a:hover {
-  color: var(--bint-pink);
+.card:hover {
+  box-shadow: var(--shadow-pink);
+  transform: scale(1.03);
 }
 
-footer p {
-  color: var(--bint-muted);
-}
-
-/* MODAL */
+/* === MODAL === */
 .modal {
   position: fixed;
   top: 0; left: 0;
@@ -164,14 +162,14 @@ footer p {
 .modal-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0,0,0,0.4);
-  backdrop-filter: blur(6px);
+  background: rgba(0,0,0,0.7);
+  backdrop-filter: blur(8px);
 }
 
 .modal-content {
   position: relative;
   z-index: 1002;
-  background: var(--bint-surface);
+  background: rgba(25, 25, 35, 0.9);
   color: var(--bint-text);
   padding: 25px;
   border-radius: 1rem;
@@ -198,71 +196,23 @@ footer p {
   color: var(--bint-pink);
 }
 
-/* CARDS */
-.card {
-  background: var(--bint-surface);
-  border-radius: 1rem;
+/* === FOOTER === */
+footer {
+  background: rgba(20, 20, 30, 0.7);
+  backdrop-filter: blur(10px);
+  color: var(--bint-text);
+  margin-top: 4rem;
   box-shadow: var(--shadow-blue);
-  overflow: hidden;
-  transition: all 0.3s ease;
 }
 
-.card:hover {
-  box-shadow: var(--shadow-pink);
-  transform: scale(1.03);
+footer a {
+  transition: color 0.3s ease, text-shadow 0.3s ease;
 }
 
-/* === MODE SOMBRE === */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bint-bg: #0D0E12;
-    --bint-surface: rgba(25, 25, 35, 0.8);
-    --bint-text: #EDEDED;
-    --bint-muted: #A1A1A1;
+footer a:hover {
+  color: var(--bint-pink);
+}
 
-    --shadow-blue: 0 0 25px rgba(46, 139, 255, 0.4);
-    --shadow-pink: 0 0 35px rgba(228, 76, 154, 0.4);
-  }
-
-  body {
-    background: linear-gradient(135deg, #14151A 0%, #1D1020 100%);
-    color: var(--bint-text);
-  }
-
-  header {
-    background: rgba(20, 20, 25, 0.7);
-    box-shadow: var(--shadow-blue);
-  }
-
-  #search {
-    background: rgba(40, 40, 50, 0.7);
-    color: #fff;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-  }
-
-  .hero-overlay {
-    background: linear-gradient(to top, rgba(0,0,0,0.9), rgba(0,0,0,0));
-  }
-
-  .hero-content {
-    background: rgba(20, 20, 30, 0.6);
-  }
-
-  footer {
-    background: rgba(25, 25, 35, 0.7);
-    color: var(--bint-text);
-  }
-
-  .modal-overlay {
-    background: rgba(0, 0, 0, 0.8);
-  }
-
-  .modal-content {
-    background: rgba(30, 30, 40, 0.9);
-    color: var(--bint-text);
-  }
-
-  .card {
-    background: rgba(30, 30, 40, 0.8);
-  }
+footer p {
+  color: var(--bint-muted);
 }
