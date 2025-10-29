@@ -1,10 +1,10 @@
-// js/api.js
+
 
 const API_KEY = '7edcc392043e6fe236d7b0328575dffb';
 const BASE_URL = 'https://api.themoviedb.org/3';
 const IMG_URL = 'https://image.tmdb.org/t/p/original';
 
-// Exporter les constantes pour les utiliser dans app.js
+
 export { API_KEY, BASE_URL, IMG_URL };
 
 
@@ -13,7 +13,6 @@ export async function getPopular(type, container, moviesGrid, hero, heroTitle, h
     const res = await fetch(`${BASE_URL}/${type}/popular?api_key=${API_KEY}&language=fr-FR&page=1`);
     const data = await res.json();
 
-    // Affiche le hero seulement pour la première catégorie chargée (Movie)
     if(type === 'movie' && container === moviesGrid){
       const heroItem = data.results[0];
       hero.style.backgroundImage = `url(${IMG_URL + heroItem.backdrop_path})`;

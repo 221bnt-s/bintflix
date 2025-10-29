@@ -8,21 +8,21 @@ import {
 } from './app.js';
 
 
-// --- 1. Chargement initial ---
+
 document.addEventListener("DOMContentLoaded", () => {
-  // Les fonctions API ont besoin de paramètres supplémentaires maintenant
+  
   getPopular('movie', moviesGrid, moviesGrid, hero, heroTitle, heroOverview, displayItems);
   getPopular('tv', seriesGrid, moviesGrid, hero, heroTitle, heroOverview, displayItems);
   
-  // Appliquer les écouteurs de modal au chargement
+  
   addModalClickListeners();
 });
 
-// --- 2. Événements des boutons ---
+
 btnFilms.addEventListener("click", () => getPopular('movie', moviesGrid, moviesGrid, hero, heroTitle, heroOverview, displayItems));
 btnSeries.addEventListener("click", () => getPopular('tv', seriesGrid, moviesGrid, hero, heroTitle, heroOverview, displayItems));
 
-// --- 3. Événement de Recherche ---
+
 searchInput.addEventListener("keydown", (e) => {
   if(e.key === "Enter"){
     const query = e.target.value.trim();
@@ -31,22 +31,22 @@ searchInput.addEventListener("keydown", (e) => {
 });
 
 
-// --- 4. Logique du MODAL ---
 
-/** Gère l'ouverture du modal lorsque l'utilisateur clique sur une carte de film/série. */
+
+
 function handleCardClick(event) {
-  // 'closest' trouve l'élément parent qui a l'attribut 'data-id'
+
   const card = event.target.closest('[data-id]'); 
   
   if (card) {
     const id = card.getAttribute('data-id');
     const type = card.getAttribute('data-type'); 
     
-    // 1. Récupérer les détails
+    
     getDetails(id, type)
       .then(details => {
         if (details) {
-          // 2. Préparer le contenu
+         
           const trailer = getTrailer(details);
           const trailerHTML = trailer 
             ? `
@@ -70,7 +70,7 @@ function handleCardClick(event) {
             ${trailerHTML}
           `;
           
-          // 3. Ouvrir le modal
+         
           openModal(content);
         }
       })
@@ -78,27 +78,25 @@ function handleCardClick(event) {
   }
 }
 
-/** Ajoute les écouteurs de clic pour les deux conteneurs de cartes */
+
 function addModalClickListeners() {
   moviesGrid.addEventListener('click', handleCardClick);
   seriesGrid.addEventListener('click', handleCardClick);
 }
 
 
-// --- Fermeture du Modal ---
 
-// Fermer avec le bouton X
 closeBtn.addEventListener("click", closeModal);
 
-// Fermer en cliquant sur l'overlay
+
 modal.addEventListener("click", (event) => {
-  // Vérifie si l'élément cliqué est le conteneur principal du modal
+
   if (event.target.classList.contains("modal")) {
     closeModal();
   }
 });
 
-// Fermer avec la touche Escape
+
 document.addEventListener("keydown", (event) => {
   if (event.key === "Escape" && !modal.classList.contains("hidden")) {
     closeModal();
